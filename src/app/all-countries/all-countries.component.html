@@ -1,0 +1,22 @@
+<div *ngIf="isLoading" class="loader" ></div>
+<div *ngIf="allCountries" class="country-cards-container">
+  <div *ngFor="let country of allCountries | filterPipe: region:currency:language" class="card">
+      <div class="card-image">
+          <img src="{{country.flag}}" alt="">
+      </div>
+      <div class="card-body">
+        <div class="card-text">
+          <p>{{country.name}}</p>
+          <p class="card-capital">Capital: <span>{{country.capital}}</span></p>
+          <p class="card-lang">Languages: <span *ngFor="let lang of country.languages;
+            let first=first; let last=last" >{{lang.name}}{{last ? '' : ', '}}</span>
+          </p>
+          <p class="card-population">Population: <span>{{country.population}}</span></p>
+          <p class="card-currency">Currencies: <span *ngFor="let curr of country.currencies;
+            let first=first; let last=last" >{{curr.code}}[{{curr.symbol}}]{{last ? '' : ', '}}</span>
+          </p>
+        </div>
+        <p><a routerLink="{{country.name}}" >Explore</a></p>
+      </div>
+  </div>
+</div>

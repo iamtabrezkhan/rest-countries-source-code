@@ -1,0 +1,8 @@
+<div *ngIf="heading" class="heading-bar heading-font">
+    <div class="back-arrow" *ngIf="isArrow" >
+        <i (click)="goBack()" class="fas fa-arrow-left"></i>
+    </div>
+    <div class="heading">
+        {{heading}}
+    </div>
+</div>

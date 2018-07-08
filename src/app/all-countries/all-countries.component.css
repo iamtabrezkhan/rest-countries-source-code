@@ -1,0 +1,13 @@
+.card-currency a {
+    border: none;
+    padding: 0px;
+}
+
+.card:hover .card-currency a {
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    box-shadow: none;
+    text-decoration: underline;
+}

@@ -1,0 +1,10 @@
+<div class="cards-container">
+    <div *ngFor="let region of regionsArray" class="card">
+        <div class="card-image">
+            <img src="./assets/images/{{region}}.png" alt="{{region}}">
+        </div>
+        <div class="card-body">
+            <p><a (click)="goToRegionCountry(region)" >{{region}}</a></p>
+        </div>
+    </div>
+</div>

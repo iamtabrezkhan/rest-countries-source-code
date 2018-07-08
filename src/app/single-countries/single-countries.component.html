@@ -1,0 +1,106 @@
+<div *ngIf="isLoading" class="loader" ></div>
+<div *ngIf="currentCountry" class="country-cards-container single-view">
+  <section class="section">
+    <div class="cover-image">
+      <img src="{{currentCountry.flag}}" alt="">
+    </div>
+    <div class="name country-item">
+      Name: <span>{{currentCountry.name}}</span>
+    </div>
+    <div class="left">
+        <div class="capital country-item">
+          Capital: <span>{{currentCountry.capital}}</span>
+        </div>
+        <div *ngIf="currentCountry" class="currency country-item">
+          Currencies: 
+          <a (click)="sendCurrency(currency.code)"  *ngFor="let currency of currentCountry.currencies; let first=first; let last=last" >
+            <span>{{currency.code}}[{{currency.symbol}}]{{last ? '' : ', '}}</span>
+          </a>
+        </div>
+        <div *ngIf="currentCountry" class="language country-item">
+          Languages: 
+          <a (click)="sendLanguage(language.name)"  *ngFor="let language of currentCountry.languages; let first=first; let last=last" >
+            <span>{{language.name}}[{{language.iso639_1}}]{{last ? '' : ', '}}</span>
+          </a>
+        </div>
+        <div class="alpha2code country-item">
+          Alpha 2 Code: <span>{{currentCountry.alpha2Code}}</span>
+        </div>
+        <div class="alpha3code country-item">
+          Alpha 3 Code: <span>{{currentCountry.alpha3Code}}</span>
+        </div>
+    </div>
+    <div class="right">
+        <div *ngIf="currentCountry" class="alt-spell country-item">
+          Alternate Spellings: 
+          <p>
+            <span *ngFor="let altSpl of currentCountry.altSpellings; let first=first; let last=last">{{altSpl}}{{last ? '' : ', '}}</span>
+          </p>
+        </div>
+        <div class="area country-item">
+          Area: <span>{{currentCountry.area}}</span>
+        </div>
+        <div *ngIf="currentCountry" class="border country-item">
+          Borders: 
+          <p>
+            <span *ngFor="let border of currentCountry.borders; let first=first; let last=last">{{border}}{{last ? '' : ', '}}</span>
+          </p>
+        </div>
+        <div *ngIf="currentCountry" class="calling-code country-item">
+          Calling Codes: 
+          <p>
+            <span *ngFor="let callCode of currentCountry.callingCodes; let first=first; let last=last">{{callCode}}{{last ? '' : ', '}}</span>
+          </p>
+        </div>
+        <div class="cioc country-item">
+          CIOC: <span>{{currentCountry.cioc}}</span>
+        </div>
+    </div>
+    <div class="left">
+        <div class="demonym country-item">
+          Demonym: <span>{{currentCountry.demonym}}</span>
+        </div>
+        <div class="gini country-item">
+          Gini: <span>{{currentCountry.gini}}</span>
+        </div>
+        <div *ngIf="currentCountry" class="lat-lang country-item">
+          LatLang: 
+          <p>
+            <span *ngFor="let latlang of currentCountry.latlng; let first=first; let last=last">{{latlang}}{{last ? '' : ', '}}</span>
+          </p>
+        </div>
+        <div class="native-name country-item">
+          Native Name: <span>{{currentCountry.nativeName}}</span>
+        </div>
+        <div class="numeric-code country-item">
+          Numeric Code: <span>{{currentCountry.numericCode}}</span>
+        </div>
+        <div class="population country-item">
+          Population: <span>{{currentCountry.population}}</span>
+        </div>
+    </div>
+    <div class="right">
+        <div *ngIf="currentCountry" class="regional-blocs country-item">
+          Regional Blocs: 
+          <p>
+            <span *ngFor="let bloc of currentCountry.regionalBlocs; let first=first; let last=last">{{bloc.name}}{{last ? '' : ', '}}</span>
+          </p>
+        </div>
+        <div class="sub-region country-item">
+          Sub Region: <span>{{currentCountry.subregion}}</span>
+        </div>
+        <div *ngIf="currentCountry" class="timezones country-item">
+          TimeZones: 
+          <p>
+            <span *ngFor="let timezone of currentCountry.timezones; let first=first; let last=last">{{timezone}}{{last ? '' : ', '}}</span>
+          </p>
+        </div>
+        <div *ngIf="currentCountry" class="topleveldomain country-item">
+          Top Level Domain: 
+          <p>
+            <span *ngFor="let topLevelDomains of currentCountry.topLevelDomain; let first=first; let last=last">{{topLevelDomains}}{{last ? '' : ', '}}</span>
+          </p>
+        </div>
+    </div>
+  </section>
+</div>
